@@ -3,6 +3,7 @@ import ReactMarkdown from "react-markdown";
 import remarkGfm from "remark-gfm";
 import { Prism as SyntaxHighlighter } from "react-syntax-highlighter";
 import { oneLight } from "react-syntax-highlighter/dist/esm/styles/prism";
+import "./responsive-chat.css";
 
 const BOT_AVATAR = '🤖';
 const USER_AVATAR = '🧑‍💼';
@@ -61,7 +62,7 @@ function Chat() {
   };
 
   return (
-    <div style={{ width: "100%", height: "70vh", overflow: "hidden", display: "flex", flexDirection: "column", background: "#f8fafc", borderRadius: 12, boxShadow: "0 4px 24px rgba(0,0,0,0.08)" }}>
+    <div className="responsive-chat-container" style={{ width: "100%", height: "70vh", overflow: "hidden", display: "flex", flexDirection: "column", background: "#f8fafc", borderRadius: 12, boxShadow: "0 4px 24px rgba(0,0,0,0.08)" }}>
       <div style={{ flex: 1, overflowY: "auto", padding: 24 }}>
         {messages.map((msg, idx) => {
           const isUser = msg.role === "user";
@@ -85,7 +86,7 @@ function Chat() {
               }}>
                 <span role="img" aria-label={NAMES[msg.role]} style={{ fontSize: 28, lineHeight: 1 }}>{AVATARS[msg.role]}</span>
               </div>
-              <div style={{
+              <div className="responsive-chat-bubble" style={{
                 background: bgColor,
                 border: `1.5px solid ${borderColor}`,
                 borderRadius: 16,
@@ -108,7 +109,7 @@ function Chat() {
                             style={oneLight}
                             language={match[1]}
                             PreTag="div"
-                            customStyle={{ borderRadius: 12, fontSize: 15, padding: 16 }}
+                            customStyle={{ borderRadius: 12, fontSize: 15, padding: 16, maxWidth: "100vw", overflowX: "auto", boxSizing: "border-box" }}
                             {...props}
                           >
                             {String(children).replace(/\n$/, "")}
@@ -119,7 +120,10 @@ function Chat() {
                               background: "#f1f5f9",
                               borderRadius: 6,
                               padding: "2px 6px",
-                              fontSize: 15
+                              fontSize: 15,
+                              maxWidth: "100vw",
+                              overflowX: "auto",
+                              boxSizing: "border-box"
                             }}
                             className={className}
                             {...props}
