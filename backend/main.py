@@ -15,7 +15,7 @@ app = FastAPI()
 # Permitir CORS para el frontend local
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["*"],
+    allow_origins=["https://corvus-python-chatbot.netlify.app"],
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
