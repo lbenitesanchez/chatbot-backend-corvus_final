@@ -6,7 +6,7 @@ import { oneLight } from "react-syntax-highlighter/dist/esm/styles/prism";
 import "./responsive-chat.css";
 
 const BOT_AVATAR = '🤖';
-const USER_AVATAR = '👩‍💼👨‍💼';
+const USER_AVATAR = '😎';
 
 const AVATARS = {
   assistant: BOT_AVATAR,
